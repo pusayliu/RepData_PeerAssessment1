@@ -1,8 +1,8 @@
 ---
-title: "PA1_template"
-author: "Liu"
-date: '2022-06-14'
-output: html_document
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
 ---
 
 ## Loading and preprocessing the data
@@ -23,10 +23,13 @@ hist(totalSteps$x, breaks=dim(totalSteps)[1], xlab='total number of steps per da
 ```
 
 Mean
+
 ```{r}
 mean(totalSteps$x)
 ```
+
 Median
+
 ```{r}
 median(totalSteps$x)
 ```
@@ -39,7 +42,9 @@ plot(meanSteps[,1], meanSteps[,2], type='l', xlab='5-minute interval', ylab='
        average number of steps')
 meanSteps[which.max(meanSteps$x),1]
 ```
+
 ## Imputing missing values
+
 ```{r}
 dim(df[is.na(df$steps),])[1]
 j = 0
@@ -54,16 +59,19 @@ hist(totalSteps2$x, breaks=dim(totalSteps2)[1], xlab='total number of steps per 
 ```
 
 Mean
+
 ```{r}
 mean(totalSteps2$x)
 ```
+
 Median
+
 ```{r}
 median(totalSteps2$x)
 ```
 
-
 ## Are there differences in activity patterns between weekdays and weekends?
+
 ```{r}
 df$week <- 'weekday'
 for (i in 1:dim(df)[1]){
